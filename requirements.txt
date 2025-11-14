@@ -1,4 +1,3 @@
 pytest
 requests
 Flask
-pytest-xml
