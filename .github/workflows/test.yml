@@ -71,3 +71,11 @@ jobs:
         with:
           name: junit-report
           path: reports/junit.xml
+  send_message:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Report to webhook
+            run: |
+              curl -X POST -H "Content-Type: application/json" \
+              -d '{"text": "Hello Tests ran successfully! Commit by ${{ github.actor }}"}' \
+              "${{ secrets.WEBHOOK_URL }}"
